@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../AI/Oram Exam Test Gemini"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"phpserver.phpPath": "C:\\Users\\Eaten\\AppData\\Local\\Microsoft\\WinGet\\Packages\\PHP.PHP.8.1_Microsoft.Winget.Source_8wekyb3d8bbwe\\php.exe",
+		"phpserver.port": 3000,
+		"phpserver.ip": "localhost",
+		"phpserver.autoOpenOnReload": true,
+		"liveServer.settings.multiRootWorkspaceName": "Eduviana"
+	}
+}

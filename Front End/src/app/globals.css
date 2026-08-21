@@ -1,0 +1,314 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-plex);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-bricolage);
+  --font-hand: var(--font-kalam);
+  --color-iris: #6e56cf;
+  --color-iris-soft: #baa7ff;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Eduviana: dark mode permanen — Zinc/Graphite + aksen Iris #6E56CF */
+:root {
+  --background: #18181b;
+  --foreground: #f1f0f3;
+  --card: #1e1e22;
+  --card-foreground: #f1f0f3;
+  --popover: #212125;
+  --popover-foreground: #f1f0f3;
+  --primary: #6e56cf;
+  --primary-foreground: #ffffff;
+  --secondary: #27272b;
+  --secondary-foreground: #e4e4e7;
+  --muted: #232327;
+  --muted-foreground: #a0a0ab;
+  --accent: #28282d;
+  --accent-foreground: #f1f0f3;
+  --destructive: #f87171;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.13);
+  --ring: #6e56cf;
+  --chart-1: #6e56cf;
+  --chart-2: #baa7ff;
+  --chart-3: #a0a0ab;
+  --chart-4: #52525b;
+  --chart-5: #33333a;
+  --radius: 0.625rem;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo,
+    monospace;
+  --sidebar: #151518;
+  --sidebar-foreground: #d6d5dc;
+  --sidebar-primary: #6e56cf;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(110, 86, 207, 0.16);
+  --sidebar-accent-foreground: #cbbeff;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-ring: #6e56cf;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: dark;
+  }
+  ::selection {
+    background: rgba(110, 86, 207, 0.45);
+  }
+}
+
+/* Scrollbar tipis yang menyatu dengan tema gelap */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a41 transparent;
+}
+
+/* Dipakai SidebarContent bawaan shadcn: tetap bisa scroll tanpa scrollbar terlihat */
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ===== Sidebar: doodle seamless bertema belajar + ambient glow Iris =====
+   Pattern ala wallpaper chat WhatsApp: ikon outline samar (toga, buku, mic,
+   lampu ide, bintang, pensil, kartu) yang tiling mulus. Statis & kontras
+   sangat rendah — memberi karakter tanpa mengganggu fokus belajar. */
+[data-slot="sidebar-inner"],
+[data-slot="sidebar"][data-mobile="true"] {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.055)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 25l16-7 16 7-16 7z'/%3E%3Cpath d='M22 29v7c0 3 16 3 16 0v-7'/%3E%3Cpath d='M46 25v9'/%3E%3Cpath d='M98 20h16a3 3 0 013 3v19a3 3 0 00-3-3H98a2 2 0 01-2-2V22a2 2 0 012-2z'/%3E%3Cpath d='M98 20v19'/%3E%3Cpath d='M69 12a4 4 0 018 0v8a4 4 0 01-8 0z'/%3E%3Cpath d='M65 20a8 8 0 0016 0M73 30v4'/%3E%3Cpath d='M28 96a8 8 0 015.2 14c-1.2 1-2.2 2-2.2 3.5h-6c0-1.5-1-2.5-2.2-3.5A8 8 0 0128 96z'/%3E%3Cpath d='M25 117h6'/%3E%3Cpath d='M78 68l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z'/%3E%3Cpath d='M103 122l2.8-8.4 10.5-10.5a2.5 2.5 0 013.6 0l2 2a2.5 2.5 0 010 3.6L111.4 119z'/%3E%3Cpath d='M113 106l5.6 5.6'/%3E%3Crect x='118' y='62' width='20' height='14' rx='2'/%3E%3Crect x='122' y='58' width='20' height='14' rx='2'/%3E%3Ccircle cx='52' cy='60' r='1.2'/%3E%3Ccircle cx='12' cy='72' r='1.2'/%3E%3Ccircle cx='96' cy='95' r='1.2'/%3E%3Ccircle cx='137' cy='30' r='1.2'/%3E%3Ccircle cx='58' cy='132' r='1.2'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(
+      130% 45% at 0% 0%,
+      rgba(110, 86, 207, 0.14),
+      transparent 62%
+    ),
+    radial-gradient(
+      110% 40% at 100% 100%,
+      rgba(110, 86, 207, 0.09),
+      transparent 60%
+    );
+  background-size:
+    150px 150px,
+    100% 100%,
+    100% 100%;
+}
+
+/* Transisi halus untuk item nav kotak besar (menang atas transition-* varian).
+   Catatan: layer arsir item aktif TIDAK boleh ditaruh sebagai ::after tombol —
+   tombol shadcn punya overflow-hidden sehingga arsiran terpotong; layer arsir
+   dirender sebagai elemen sendiri di dalam <li> (lihat app-shell.tsx). */
+[data-sidebar="menu-button"].nav-big {
+  position: relative;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    translate 200ms ease,
+    scale 150ms ease,
+    box-shadow 200ms ease;
+}
+
+/* Saat collapsed ke mode ikon (strip 48px): doodle diperkecil (150px →
+   72px per ubin) supaya ikonnya mungil dan muat utuh, tidak terpotong
+   tepi. Saat expanded ukurannya kembali normal. */
+[data-collapsible="icon"] [data-slot="sidebar-inner"] {
+  background-size:
+    72px 72px,
+    100% 100%,
+    100% 100%;
+}
+
+/* ===== Main area: doodle "meja belajar" + glow iris =====
+   Gema dari doodle sidebar tapi lebih besar, jarang, dan lebih samar —
+   berisi ilustrasi agak besar (TTS, buku terbuka, kaca pembesar) plus
+   ikon kecil dengan rotasi acak ala wallpaper chat. Dipasang di ::before
+   (bukan background elemen) supaya bisa diberi mask: doodle memudar di
+   kolom baca tengah dan hanya hidup di pinggiran. */
+[data-slot="sidebar-inset"] {
+  position: relative;
+  isolation: isolate;
+}
+[data-slot="sidebar-inset"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.042)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='rotate(-8 60 190)'%3E%3Cpath d='M12 174h96v16H12z'/%3E%3Cpath d='M28 174v16M44 174v16M60 174v16M76 174v16M92 174v16'/%3E%3Cpath d='M44 142h16v96H44z'/%3E%3Cpath d='M44 158h16M44 206h16M44 222h16'/%3E%3Ctext x='16' y='187' font-family='monospace' font-size='11' stroke='none' fill='rgba(255,255,255,0.055)'%3Ed%3C/text%3E%3Ctext x='48' y='155' font-family='monospace' font-size='11' stroke='none' fill='rgba(255,255,255,0.055)'%3Ee%3C/text%3E%3Ctext x='80' y='187' font-family='monospace' font-size='11' stroke='none' fill='rgba(255,255,255,0.055)'%3Eu%3C/text%3E%3C/g%3E%3Cg transform='rotate(6 210 62)'%3E%3Cpath d='M170 52c12-8 28-8 40 0 12-8 28-8 40 0v44c-12-8-28-8-40 0-12-8-28-8-40 0z'/%3E%3Cpath d='M210 52v44'/%3E%3C/g%3E%3Cg transform='rotate(-12 224 224)'%3E%3Ccircle cx='218' cy='218' r='15'/%3E%3Cpath d='M229 229l14 14'/%3E%3C/g%3E%3Cg transform='rotate(-6 56 52)'%3E%3Cpath d='M56 32a10 10 0 016.5 17.6c-1.5 1.2-2.7 2.4-2.7 4.4h-7.6c0-2-1.2-3.2-2.7-4.4A10 10 0 0156 32z'/%3E%3Cpath d='M52 58h8'/%3E%3C/g%3E%3Cg transform='rotate(28 150 118)'%3E%3Cpath d='M126 112h40l8 6-8 6h-40z'/%3E%3Cpath d='M158 112v12'/%3E%3C/g%3E%3Cg transform='rotate(10 130 246)'%3E%3Cpath d='M122 232v10l-10 16a6 6 0 005 9h22a6 6 0 005-9l-10-16v-10'/%3E%3Cpath d='M118 232h20'/%3E%3C/g%3E%3Cpath d='M16 92l44-14-20 38-8-13z'/%3E%3Cpath d='M60 78L32 103'/%3E%3Cpath d='M246 130l2.2 4.6 5 .7-3.6 3.6.8 5-4.4-2.3-4.4 2.3.8-5-3.6-3.6 5-.7z'/%3E%3Cpath d='M104 24v8M100 28h8'/%3E%3Cpath d='M180 168v7M176.5 171.5h7'/%3E%3Ccircle cx='150' cy='24' r='3'/%3E%3Ccircle cx='24' cy='140' r='2.6'/%3E%3Ccircle cx='258' cy='84' r='3'/%3E%3Ccircle cx='196' cy='252' r='2.6'/%3E%3Ccircle cx='250' cy='180' r='1.2'/%3E%3Ccircle cx='90' cy='64' r='1.2'/%3E%3Ccircle cx='160' cy='200' r='1.2'/%3E%3Ccircle cx='36' cy='250' r='1.2'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(
+      90% 55% at 100% 0%,
+      rgba(110, 86, 207, 0.17),
+      transparent 60%
+    ),
+    radial-gradient(
+      80% 40% at 0% 100%,
+      rgba(110, 86, 207, 0.12),
+      transparent 58%
+    );
+  background-size:
+    280px 280px,
+    100% 100%,
+    100% 100%;
+  -webkit-mask-image: radial-gradient(
+    85% 75% at 50% 50%,
+    transparent 40%,
+    black 78%
+  );
+  mask-image: radial-gradient(85% 75% at 50% 50%, transparent 40%, black 78%);
+}
+
+/* Halaman Mind Map: kanvas React Flow butuh latar bersih — doodle main
+   dimatikan selama kanvasnya ada di layar. Atribut data-doodle dipasang
+   oleh MindMapCanvas (selector :has() dibuang compiler, tidak bisa dipakai) */
+[data-slot="sidebar-inset"][data-doodle="off"]::before {
+  content: none;
+}
+
+/* Mind Map layar penuh: sembunyikan FAB upload yang hidup di luar portal
+   (dipasang global di AppShell) — atribut dipasang MindMapCanvas di body */
+body[data-mindmap-fullscreen] [data-slot="upload-fab-trigger"] {
+  display: none;
+}
+
+/* ===== Gaya hand-drawn (modal upload) =====
+   sketch-draw: garis SVG "digambar tangan" (stroke-dashoffset menuju 0),
+   dipasang inline lewat pathLength=100 + dasharray/dashoffset 100.
+   hatch-scroll: arsiran diagonal berjalan (progress bar); 17px = satu
+   periode pola 12px pada sudut -45deg. */
+@keyframes sketch-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes hatch-scroll {
+  to {
+    background-position: 17px 0;
+  }
+}
+/* Denyut cahaya neon lembut — dipakai badge status & aksen "menyala"
+   di halaman Dokumen (glow warna mengikuti currentColor via box-shadow). */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px currentColor,
+      0 0 10px 1px currentColor;
+    opacity: 1;
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px currentColor,
+      0 0 20px 4px currentColor;
+    opacity: 0.85;
+  }
+}
+
+/* Denyut halo lembut di titik soal aktif pada stepper Quiz — lebih
+   redup & lambat (2.2s) dibanding glow-pulse supaya tidak mengganggu
+   fokus baca soal. */
+@keyframes step-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(139, 124, 240, 0.14),
+      0 0 12px 2px rgba(139, 124, 240, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 0 5px rgba(139, 124, 240, 0.22),
+      0 0 18px 4px rgba(139, 124, 240, 0.65);
+  }
+}
+
+/* ===== React Flow (Mind Map) — penyesuaian tema gelap ===== */
+.react-flow__attribution {
+  background: transparent;
+}
+.react-flow__attribution a {
+  color: #4b4b53;
+}
+.react-flow__controls {
+  box-shadow: none;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+.react-flow__controls-button {
+  background: #1e1e22;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  fill: #d6d5dc;
+  color: #d6d5dc;
+  width: 30px;
+  height: 30px;
+}
+.react-flow__controls-button:last-child {
+  border-bottom: none;
+}
+.react-flow__controls-button:hover {
+  background: #2a2a30;
+}
+.react-flow__node {
+  cursor: pointer;
+  /* React Flow mematikan pointer-events (inline) saat node non-draggable &
+     non-selectable — dipaksa hidup lagi supaya toggle cabang bisa diklik */
+  pointer-events: all !important;
+}
+.react-flow__handle {
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  min-width: 0;
+  min-height: 0;
+}

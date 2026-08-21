@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mockup Opsi Upload Dokumen — Eduviana</title>
+<style>
+  :root {
+    --bg: #18181b; --sidebar: #151518; --card: #1e1e22; --card2: #212126;
+    --border: rgba(255,255,255,.09); --text: #f1f0f3; --muted: #a0a0ab;
+    --iris: #6e56cf; --iris-soft: #baa7ff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; font-family: "Segoe UI", system-ui, sans-serif; }
+  body { background: var(--bg); color: var(--text); min-height:100vh; padding: 24px 16px 60px; }
+  h1 { font-size: 20px; text-align:center; margin-bottom: 4px; }
+  .sub { text-align:center; color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+
+  /* Tabs */
+  .tabs { display:flex; gap:8px; justify-content:center; margin-bottom:20px; flex-wrap:wrap; }
+  .tab {
+    background: var(--card); border:1px solid var(--border); color: var(--muted);
+    padding: 9px 16px; border-radius: 10px; cursor:pointer; font-size:13px; font-weight:600;
+    transition: all .2s;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.on { background: var(--iris); color:#fff; border-color: transparent; }
+
+  .panel { display:none; max-width: 860px; margin: 0 auto; }
+  .panel.on { display:block; }
+  .note {
+    background: var(--card); border-left: 3px solid var(--iris); border-radius: 10px;
+    padding: 12px 14px; font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height:1.6;
+  }
+  .note b { color: var(--iris-soft); }
+
+  /* ==== Kerangka app mock ==== */
+  .app {
+    display:flex; height: 520px; border:1px solid var(--border); border-radius: 14px;
+    overflow:hidden; background: var(--bg); position:relative;
+  }
+  .sb {
+    width: 215px; min-width:215px; background: var(--sidebar); border-right:1px solid var(--border);
+    padding: 14px 10px; display:flex; flex-direction:column; gap: 4px;
+  }
+  .logo { display:flex; align-items:center; gap:8px; padding: 0 4px 12px; border-bottom:1px solid var(--border); margin-bottom:10px;}
+  .logo .ic { width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#8571e0,var(--iris));
+    display:flex;align-items:center;justify-content:center;font-size:14px; }
+  .logo b { font-size:14px; } .logo small{ display:block; font-size:8.5px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase;}
+
+  .nav-item { display:flex; align-items:center; gap:9px; padding: 9px 10px; border-radius: 10px;
+    font-size: 13px; font-weight:500; color:#d6d5dc; cursor:pointer; }
+  .nav-item:hover { background: rgba(255,255,255,.05); }
+  .nav-item.active { background: linear-gradient(135deg,#7d66db,#5c48bd); color:#fff; }
+  .nav-item .em { width:22px; text-align:center; }
+  .group-label { font-size:9px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; padding: 10px 10px 4px; }
+
+  .badge { margin-left:auto; background:rgba(255,255,255,.1); color:var(--muted); font-size:10px;
+    min-width:18px; height:18px; border-radius:99px; display:flex; align-items:center; justify-content:center; padding:0 5px;}
+
+  /* tombol upload utama di sidebar (opsi 1) */
+  .up-btn {
+    display:flex; align-items:center; justify-content:center; gap:7px;
+    background: var(--iris); color:#fff; border:none; border-radius: 10px;
+    padding: 10px; font-size: 13px; font-weight: 600; cursor: pointer; margin-bottom: 10px;
+    box-shadow: 0 4px 16px -6px rgba(110,86,207,.7); transition: all .2s;
+  }
+  .up-btn:hover { background:#7d66db; }
+
+  .doc-row { display:flex; align-items:center; gap:8px; padding:7px 10px; margin-left:14px;
+    border-left:1px solid var(--border); font-size:12px; color:var(--muted); }
+  .doc-row.on { color: var(--iris-soft); }
+  .dot { width:6px; height:6px; border-radius:99px; background:rgba(255,255,255,.2); }
+  .doc-row.on .dot { background: var(--iris); box-shadow:0 0 7px 2px rgba(110,86,207,.6); }
+
+  /* Konten */
+  .content { flex:1; padding: 22px 26px; overflow:auto; }
+  .content h2 { font-size: 17px; margin-bottom: 3px; }
+  .content .desc { color: var(--muted); font-size: 12.5px; margin-bottom: 16px; }
+
+  .dropzone {
+    border: 1.5px dashed rgba(255,255,255,.2); border-radius: 14px; background: rgba(30,30,34,.5);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    padding: 34px 20px; cursor:pointer; transition: all .2s; text-align:center;
+  }
+  .dropzone:hover { border-color: var(--iris); background: rgba(110,86,207,.06); }
+  .dropzone .cloud { width:40px; height:40px; border-radius:99px; background:rgba(110,86,207,.18);
+    color:var(--iris-soft); display:flex; align-items:center; justify-content:center; font-size:18px; }
+  .dropzone b { font-size: 13.5px; } .dropzone small { color:var(--muted); font-size:11.5px; }
+  .dropzone.hero { padding: 70px 20px; }
+
+  .doc-card { display:flex; align-items:center; gap:12px; background: var(--card);
+    border:1px solid var(--border); border-radius: 12px; padding: 13px 15px; margin-bottom:9px; }
+  .doc-card .fic { width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.06);
+    display:flex;align-items:center;justify-content:center; }
+  .doc-card b { font-size:13px; display:block; }
+  .doc-card small { color:var(--muted); font-size:11px; }
+  .pill { margin-left:auto; font-size:10px; font-weight:600; padding:3px 9px; border-radius:99px; }
+  .pill.aktif { background: var(--iris); color:#fff; }
+  .pill.ok { background: rgba(52,211,153,.12); color:#6ee7b7; }
+  .pill.proc { background: rgba(251,191,36,.12); color:#fcd34d; }
+
+  .small-up { display:inline-flex; align-items:center; gap:6px; background:var(--iris); color:#fff;
+    border:none; padding: 8px 14px; border-radius: 9px; font-size: 12.5px; font-weight:600; cursor:pointer; }
+  .row-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+  .row-head h3 { font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); }
+
+  /* Modal (opsi 1) */
+  .overlay { position:absolute; inset:0; background:rgba(0,0,0,.6); backdrop-filter: blur(2px);
+    display:none; align-items:center; justify-content:center; z-index:50; }
+  .overlay.show { display:flex; }
+  .modal { width: 400px; max-width:90%; background: var(--card2); border:1px solid var(--border);
+    border-radius: 16px; padding: 20px; animation: pop .18s ease-out; }
+  @keyframes pop { from { transform: scale(.95); opacity:0; } to { transform: scale(1); opacity:1; } }
+  .modal h3 { font-size: 15px; margin-bottom: 3px; }
+  .modal p { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+  .modal .actions { display:flex; justify-content:flex-end; gap:8px; margin-top: 14px; }
+  .btn-ghost { background:transparent; border:1px solid var(--border); color:var(--muted);
+    padding: 8px 14px; border-radius: 9px; font-size:12.5px; cursor:pointer; }
+  .btn-ghost:hover { color:var(--text); }
+
+  /* toggle opsi 3 */
+  .toggle-bar { display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--border);
+    border-radius:10px; padding: 9px 13px; margin-bottom:16px; font-size:12.5px; color:var(--muted);}
+  .sw { position:relative; width:38px; height:21px; background:rgba(255,255,255,.12); border-radius:99px;
+    cursor:pointer; transition:.2s; border:none; }
+  .sw::after { content:""; position:absolute; top:2.5px; left:3px; width:16px; height:16px;
+    border-radius:99px; background:#fff; transition:.2s; }
+  .sw.on { background: var(--iris); } .sw.on::after { left:19px; }
+</style>
+</head>
+<body>
+
+<h1>Mockup 3 Opsi Alur Upload Dokumen</h1>
+<p class="sub">Eduviana — klik tab untuk membandingkan · layout kasar, bukan desain final</p>
+
+<div class="tabs">
+  <button class="tab on" onclick="show(1,this)">Opsi 1 — Popup dari Sidebar ⭐</button>
+  <button class="tab" onclick="show(2,this)">Opsi 2 — Ganti Nama Menu</button>
+  <button class="tab" onclick="show(3,this)">Opsi 3 — Adaptif (Empty State)</button>
+</div>
+
+<!-- ================= OPSI 1 ================= -->
+<div class="panel on" id="p1">
+  <div class="note"><b>Opsi 1:</b> Tombol <b>"+ Upload Dokumen"</b> selalu ada di sidebar (pola "New chat" ChatGPT / NotebookLM).
+    Klik → popup dropzone muncul <i>tanpa pindah halaman</i> — coba klik tombolnya! History File jadi murni riwayat.</div>
+  <div class="app">
+    <div class="sb">
+      <div class="logo"><span class="ic">🎓</span><span><b>Eduviana</b><small>Teman Belajarmu</small></span></div>
+      <button class="up-btn" onclick="openModal()">＋ Upload Dokumen</button>
+      <div class="nav-item"><span class="em">🗂</span> History File <span class="badge">2</span></div>
+      <div class="doc-row on"><span class="dot"></span> skripsi_v2.docx</div>
+      <div class="doc-row"><span class="dot"></span> skripsi_v1.docx</div>
+      <div class="group-label">Menu Belajar</div>
+      <div class="nav-item active"><span class="em">🎙</span> Ujian Lisan</div>
+      <div class="nav-item"><span class="em">📄</span> Rangkuman</div>
+      <div class="nav-item"><span class="em">🧠</span> Mind Map</div>
+    </div>
+    <div class="content">
+      <h2>Latihan Sidang Lisan</h2>
+      <p class="desc">Kamu sedang di halaman lain — upload tetap bisa dari mana saja lewat tombol sidebar.</p>
+      <div class="doc-card"><div class="fic">🎙</div><div><b>Sesi #3 — 8 Jul, 23:10</b><small>Rapor: kuat di latar belakang, lemah di research gap</small></div></div>
+      <div class="doc-card"><div class="fic">🎙</div><div><b>Sesi #2 — 5 Jul, 21:04</b><small>Rapor: arsitektur runtut, akurasi OCR ragu-ragu</small></div></div>
+    </div>
+    <!-- popup -->
+    <div class="overlay" id="ov" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <h3>Upload Dokumen Baru</h3>
+        <p>Materi (.docx / .pdf) akan diproses jadi rangkuman, flashcard, quiz, dll.</p>
+        <div class="dropzone"><div class="cloud">☁</div><b>Tarik file ke sini, atau klik untuk pilih</b><small>(.docx / .pdf)</small></div>
+        <div class="actions"><button class="btn-ghost" onclick="closeModal()">Batal</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= OPSI 2 ================= -->
+<div class="panel" id="p2">
+  <div class="note"><b>Opsi 2:</b> Menu diganti nama jadi <b>"Dokumenku"</b> — karena bukan lagi "riwayat",
+    wajar isinya upload + daftar dalam satu halaman (persis layout sekarang, cuma beda nama & framing).</div>
+  <div class="app">
+    <div class="sb">
+      <div class="logo"><span class="ic">🎓</span><span><b>Eduviana</b><small>Teman Belajarmu</small></span></div>
+      <div class="nav-item active"><span class="em">📁</span> Dokumenku <span class="badge">2</span></div>
+      <div class="group-label">Menu Belajar</div>
+      <div class="nav-item"><span class="em">🎙</span> Ujian Lisan</div>
+      <div class="nav-item"><span class="em">📄</span> Rangkuman</div>
+      <div class="nav-item"><span class="em">🧠</span> Mind Map</div>
+    </div>
+    <div class="content">
+      <h2>Dokumenku</h2>
+      <p class="desc">Kelola semua materi belajarmu di satu tempat.</p>
+      <div class="dropzone" style="margin-bottom:18px"><div class="cloud">☁</div><b>Tarik file ke sini, atau klik untuk upload</b><small>(.docx / .pdf)</small></div>
+      <div class="row-head"><h3>Dokumen Tersimpan</h3></div>
+      <div class="doc-card"><div class="fic">📄</div><div><b>skripsi_v2.docx</b><small>7 Juli</small></div><span class="pill aktif">Aktif</span></div>
+      <div class="doc-card"><div class="fic">📄</div><div><b>skripsi_v1.docx</b><small>26 Juni</small></div><span class="pill ok">Selesai</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= OPSI 3 ================= -->
+<div class="panel" id="p3">
+  <div class="note"><b>Opsi 3:</b> Dropzone <b>adaptif</b> di halaman History: besar saat belum ada dokumen (empty state),
+    menyusut jadi tombol kecil setelah ada isi. Coba mainkan toggle simulasinya!</div>
+  <div class="app">
+    <div class="sb">
+      <div class="logo"><span class="ic">🎓</span><span><b>Eduviana</b><small>Teman Belajarmu</small></span></div>
+      <div class="nav-item active"><span class="em">🗂</span> History File <span class="badge" id="b3">2</span></div>
+      <div class="group-label">Menu Belajar</div>
+      <div class="nav-item"><span class="em">🎙</span> Ujian Lisan</div>
+      <div class="nav-item"><span class="em">📄</span> Rangkuman</div>
+      <div class="nav-item"><span class="em">🧠</span> Mind Map</div>
+    </div>
+    <div class="content">
+      <div class="toggle-bar">Simulasi: <button class="sw on" id="sw" onclick="toggleDocs()"></button> <span id="swlabel">sudah ada dokumen</span></div>
+      <!-- state: ada dokumen -->
+      <div id="hasDocs">
+        <div class="row-head"><h3>Dokumen Tersimpan</h3><button class="small-up">＋ Upload</button></div>
+        <div class="doc-card"><div class="fic">📄</div><div><b>skripsi_v2.docx</b><small>7 Juli</small></div><span class="pill aktif">Aktif</span></div>
+        <div class="doc-card"><div class="fic">📄</div><div><b>skripsi_v1.docx</b><small>26 Juni</small></div><span class="pill ok">Selesai</span></div>
+      </div>
+      <!-- state: kosong -->
+      <div id="noDocs" style="display:none">
+        <div class="dropzone hero"><div class="cloud">☁</div><b>Mulai dengan upload materi pertamamu</b>
+          <small>Semua rangkuman, flashcard, quiz & mind map akan dibuat otomatis dari sini</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(n, el) {
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("on"));
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("on"));
+    document.getElementById("p" + n).classList.add("on");
+    el.classList.add("on");
+  }
+  function openModal(){ document.getElementById("ov").classList.add("show"); }
+  function closeModal(){ document.getElementById("ov").classList.remove("show"); }
+  function toggleDocs(){
+    const sw = document.getElementById("sw");
+    const has = sw.classList.toggle("on");
+    document.getElementById("hasDocs").style.display = has ? "" : "none";
+    document.getElementById("noDocs").style.display = has ? "none" : "";
+    document.getElementById("swlabel").textContent = has ? "sudah ada dokumen" : "belum ada dokumen (pengguna baru)";
+    document.getElementById("b3").textContent = has ? "2" : "0";
+  }
+</script>
+</body>
+</html>
