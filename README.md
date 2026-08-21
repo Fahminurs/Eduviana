@@ -1,13 +1,13 @@
 # Eduviana
 
-Aplikasi web untuk siapa saja yang perlu mendalami sebuah dokumen sampai benar-benar paham, lalu berlatih menjelaskannya secara lisan — bukan cuma mahasiswa yang bersiap sidang skripsi, tapi juga siapa pun yang bersiap presentasi, wawancara, atau ujian lisan lain. Cukup upload dokumennya, dan Eduviana membuatkan mind map, flashcard, rangkuman, quiz, sampai simulasi tanya-jawab lisan dengan AI yang berperan sebagai penguji.
+Eduviana mengubah bahan belajarmu jadi materi yang lebih mudah dikuasai — dan menemanimu berlatih menjelaskannya sampai lancar. Cocok untuk siswa SD, SMP, SMA, sampai mahasiswa: tinggal upload dokumennya (buku pelajaran, materi presentasi, atau skripsi), dan Eduviana menyiapkan mind map, flashcard, rangkuman, quiz, hingga sesi latihan tanya-jawab lisan dengan AI sebagai teman belajar.
 
 ## Ide Utama
 
-1. **Upload dokumen** (Word/PDF) yang mau dikuasai — skripsi, materi presentasi, bahan wawancara, atau dokumen belajar lainnya.
-2. **Materi belajar otomatis** — rangkuman, glosarium, flashcard, quiz, mind map, dibuat dari isi dokumen tersebut.
-3. **Ujian lisan simulasi** — mic browser merekam suara, diteruskan real-time ke Gemini Live API yang berperan sebagai penguji: menyapa, mengajukan pertanyaan bertahap dari pemahaman dasar ke analitis/kritis, lalu memberi ringkasan evaluasi (kekuatan & bagian yang masih lemah) di akhir sesi.
-4. **Progres per bagian dokumen** — status kuasai/belajar/belum dihitung dari skor quiz & penguasaan flashcard, ditampilkan di halaman Beranda lengkap dengan countdown H- menuju hari-H.
+1. **Upload dokumen** (Word/PDF) yang mau dikuasai — buku pelajaran, materi presentasi, bahan skripsi, atau dokumen belajar lainnya.
+2. **Materi belajar otomatis** — rangkuman, glosarium, flashcard, quiz, dan mind map, dibuat otomatis dari isi dokumen tersebut.
+3. **Latihan tanya-jawab lisan** — mic browser merekam suara, diteruskan real-time ke Gemini Live API yang berperan sebagai teman belajar: menyapa, mengajukan pertanyaan bertahap dari yang dasar sampai yang lebih menantang, lalu memberi ringkasan evaluasi (bagian yang sudah kuat & yang masih perlu dilatih) di akhir sesi.
+4. **Progres per bagian dokumen** — status kuasai/belajar/belum dihitung dari skor quiz & penguasaan flashcard, ditampilkan di halaman Beranda lengkap dengan hitung mundur menuju hari-H.
 
 ## Struktur Repo
 
