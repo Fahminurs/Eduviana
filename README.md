@@ -1,6 +1,6 @@
 # Eduviana
 
-Aplikasi web pribadi untuk latihan mandiri persiapan sidang skripsi. Dijalankan lokal di satu komputer (bukan produk yang di-hosting online, tanpa login/multi-user) — membaca dokumen skripsi milikmu, lalu menghasilkan materi belajar otomatis dan mensimulasikan sesi tanya-jawab lisan dengan AI yang berperan sebagai dosen penguji.
+Aplikasi web untuk mahasiswa yang ingin berlatih persiapan sidang skripsi — membuat mind map, belajar lewat flashcard, dan berlatih ujian lisan dengan AI yang berperan sebagai dosen penguji. Cukup upload dokumen skripsi, dan Eduviana menghasilkan materi belajarnya untukmu.
 
 ## Ide Utama
 
@@ -46,4 +46,4 @@ Buka [http://localhost:3000](http://localhost:3000).
 
 ## Catatan
 
-Proyek personal untuk kebutuhan sendiri, bukan produk komersial.
+Saat ini dijalankan lokal di satu komputer, tanpa login/multi-user.
