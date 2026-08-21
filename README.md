@@ -1,13 +1,13 @@
 # Eduviana
 
-Aplikasi web untuk mahasiswa yang ingin berlatih persiapan sidang skripsi — membuat mind map, belajar lewat flashcard, dan berlatih ujian lisan dengan AI yang berperan sebagai dosen penguji. Cukup upload dokumen skripsi, dan Eduviana menghasilkan materi belajarnya untukmu.
+Aplikasi web untuk siapa saja yang perlu mendalami sebuah dokumen sampai benar-benar paham, lalu berlatih menjelaskannya secara lisan — bukan cuma mahasiswa yang bersiap sidang skripsi, tapi juga siapa pun yang bersiap presentasi, wawancara, atau ujian lisan lain. Cukup upload dokumennya, dan Eduviana membuatkan mind map, flashcard, rangkuman, quiz, sampai simulasi tanya-jawab lisan dengan AI yang berperan sebagai penguji.
 
 ## Ide Utama
 
-1. **Upload dokumen skripsi** (Word/PDF, seluruh BAB).
+1. **Upload dokumen** (Word/PDF) yang mau dikuasai — skripsi, materi presentasi, bahan wawancara, atau dokumen belajar lainnya.
 2. **Materi belajar otomatis** — rangkuman, glosarium, flashcard, quiz, mind map, dibuat dari isi dokumen tersebut.
-3. **Ujian lisan simulasi** — mic browser merekam suara, diteruskan real-time ke Gemini Live API yang berperan sebagai dosen penguji: menyapa, mengajukan pertanyaan bertahap dari pemahaman dasar ke analitis/kritis, lalu memberi ringkasan evaluasi (kekuatan & bagian yang masih lemah) di akhir sesi.
-4. **Progres per BAB** — status kuasai/belajar/belum dihitung dari skor quiz & penguasaan flashcard, ditampilkan di halaman Beranda lengkap dengan countdown H- menuju hari sidang.
+3. **Ujian lisan simulasi** — mic browser merekam suara, diteruskan real-time ke Gemini Live API yang berperan sebagai penguji: menyapa, mengajukan pertanyaan bertahap dari pemahaman dasar ke analitis/kritis, lalu memberi ringkasan evaluasi (kekuatan & bagian yang masih lemah) di akhir sesi.
+4. **Progres per bagian dokumen** — status kuasai/belajar/belum dihitung dari skor quiz & penguasaan flashcard, ditampilkan di halaman Beranda lengkap dengan countdown H- menuju hari-H.
 
 ## Struktur Repo
 
