@@ -9,6 +9,18 @@ Eduviana mengubah bahan belajarmu jadi materi yang lebih mudah dikuasai — dan 
 3. **Latihan tanya-jawab lisan** — mic browser merekam suara, diteruskan real-time ke Gemini Live API yang berperan sebagai teman belajar: menyapa, mengajukan pertanyaan bertahap dari yang dasar sampai yang lebih menantang, lalu memberi ringkasan evaluasi (bagian yang sudah kuat & yang masih perlu dilatih) di akhir sesi.
 4. **Progres per bagian dokumen** — status kuasai/belajar/belum dihitung dari skor quiz & penguasaan flashcard, ditampilkan di halaman Beranda lengkap dengan hitung mundur menuju hari-H.
 
+## Fitur
+
+Sesuai menu di sidebar aplikasi:
+
+- **Beranda** — ringkasan progres belajar per bagian dokumen, lengkap dengan hitung mundur menuju hari-H.
+- **Ujian Lisan** — latihan tanya-jawab lisan real-time lewat mic: AI mengajukan pertanyaan bertahap dari yang dasar sampai yang lebih menantang, lalu memberi ringkasan evaluasi di akhir sesi.
+- **Rangkuman** — isi dokumen ditata ulang jadi ringkas dan enak dibaca per bagian, lengkap dengan poin-poin penting dan gambar yang relevan.
+- **Glosarium** — daftar istilah penting beserta definisinya, bisa dicari.
+- **Mind Map** — diagram visual struktur topik & sub-topik, bisa di-zoom dan dinavigasi.
+- **Flashcard** — kartu tanya-jawab dengan 3 mode belajar (Standar, Belajar, Uji) yang melacak kartu mana yang sudah dikuasai.
+- **Quiz** — soal pilihan ganda otomatis dari isi dokumen, lengkap dengan pembahasan dan verifikasi AI di tiap soal.
+
 ## Struktur Repo
 
 ```
