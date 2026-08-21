@@ -1,6 +1,7 @@
 # Eduviana
 
-Eduviana mengubah bahan belajarmu jadi materi yang lebih mudah dikuasai — dan menemanimu berlatih menjelaskannya sampai lancar. Cocok untuk siswa SD, SMP, SMA, sampai mahasiswa: tinggal upload dokumennya (buku pelajaran, materi presentasi, atau skripsi), dan Eduviana menyiapkan mind map, flashcard, rangkuman, quiz, hingga sesi latihan tanya-jawab lisan dengan AI sebagai teman belajar.
+Eduviana adalah teman belajar berbasis AI yang mengubah materi pembelajaran menjadi pengalaman belajar yang lebih interaktif dan personal. Dari siswa SD, SMP, SMA, hingga mahasiswa, cukup unggah buku, modul, presentasi, atau materi lainnya — Eduviana membantu mengubahnya menjadi rangkuman, mind map, flashcard, quiz, hingga simulasi tanya-jawab lisan dengan AI, sehingga belajar bukan hanya tentang membaca, tetapi juga memahami, berlatih, dan menguasai.
+
 
 ## Ide Utama
 
