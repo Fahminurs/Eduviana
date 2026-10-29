@@ -17,5 +17,6 @@ The browser clock was pinned to 10 Jul 2026 so the hari-H countdown (4 Aug 2026)
 | `06-rangkuman-1440.png` | Rangkuman: overview, key points, sections, callouts |
 | `07-ujian-lisan-1440.png` | Ujian Lisan: ready state (Mulai Sesi, duration) plus previous session evaluation. No live Gemini session |
 | `08-upload-dokumen-1440.png` | Upload Dokumen modal (.docx / .pdf) |
+| `11-quiz-hasil-pembahasan-1440.png` | Quiz results: score, explanations, quote from the document, AI verification (all 10 answered with the first option, hence the low score) |
 | `09-beranda-390.png` | Mobile: Beranda |
 | `10-flashcard-390.png` | Mobile: Flashcard |
